@@ -10,6 +10,8 @@ public class enemy_patrol : MonoBehaviour
 	private Transform target;
 	private int dest_Point = 0;
 
+	public SpriteRenderer sprite_Renderer_Snake; // Component representing the character
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,9 @@ public class enemy_patrol : MonoBehaviour
 		if(Vector3.Distance(transform.position, target.position) < 0.3f){
 			dest_Point = (dest_Point + 1) % way_Points.Length;
 			target = way_Points[dest_Point];
+			sprite_Renderer_Snake.flipX = !sprite_Renderer_Snake.flipX;
 		}
 	}
+
+
 }

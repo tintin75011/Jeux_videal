@@ -51,7 +51,6 @@ public class player_movement : MonoBehaviour {
 
 		if (is_jumping == true) {
 			rigid_body.AddForce(new Vector2(0f, jump_force));
-			Debug.Log(jump_Number);
 			is_jumping = false;
 		}
 	}
@@ -62,6 +61,14 @@ public class player_movement : MonoBehaviour {
 		}
 		else if(_velocity < -0.1f){
 			sprite_Renderer.flipX = true;
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision){ // only when somethings go in the 2Dcollider
+		if(collision.CompareTag("Snake")){ //check if it's the player
+
+			rigid_body.AddForce(new Vector2(0f, jump_force));
+			Debug.Log("sauté");
 		}
 	}
 }
