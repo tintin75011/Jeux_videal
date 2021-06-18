@@ -8,7 +8,6 @@ public class weak_Spot : MonoBehaviour
 		if(collision.CompareTag("Player")){ //check if it's the player
 
 			Destroy(object_To_Destroy); // destroy the gameObject
-			Debug.Log("touché");
 		}
 	}
 }

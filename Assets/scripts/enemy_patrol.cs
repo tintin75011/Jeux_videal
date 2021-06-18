@@ -31,5 +31,11 @@ public class enemy_patrol : MonoBehaviour
 		}
 	}
 
+	private void OnCollisionEnter2D(Collision2D collision){
+		if(collision.transform.CompareTag("Player")){
+			player_health player_health = collision.transform.GetComponent<player_health>();
+			player_health.Take_Damage(10);
+		}
+	}
 
 }

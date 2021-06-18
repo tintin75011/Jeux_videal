@@ -68,7 +68,6 @@ public class player_movement : MonoBehaviour {
 		if(collision.CompareTag("Snake")){ //check if it's the player
 
 			rigid_body.AddForce(new Vector2(0f, jump_force));
-			Debug.Log("sauté");
 		}
 	}
 }
