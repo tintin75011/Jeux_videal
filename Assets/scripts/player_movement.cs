@@ -8,7 +8,7 @@ public class player_movement : MonoBehaviour {
 
 	public bool is_jumping = false;
 	public bool is_Grounded; // Variable which check if the player is touching the ground
-	public int  jump_Number=0; // Jump coumpter
+	public int  jump_Number = 0; // Jump count
 
 	private Vector3 velocity = Vector3.zero;
 
@@ -18,16 +18,14 @@ public class player_movement : MonoBehaviour {
 	public Animator player_Animator;
 	public SpriteRenderer sprite_Renderer; // Component representing the character
 
-	void Start() {
-
-	}
+	void Start() {}
 
 	void Update() {
 		if (Input.GetButtonDown("Jump") && (jump_Number < 1)) { // spacebar
 		  	is_jumping = true;
 			jump_Number++;
 		}
-		if (is_Grounded){
+		if (is_Grounded) {
 			jump_Number = 0;
 		}
 	}
@@ -66,7 +64,6 @@ public class player_movement : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision){ // only when somethings go in the 2Dcollider
 		if(collision.CompareTag("Snake")){ //check if it's the player
-
 			rigid_body.AddForce(new Vector2(0f, jump_force));
 		}
 	}
