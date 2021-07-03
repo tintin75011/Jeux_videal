@@ -34,7 +34,14 @@ public class enemy_patrol : MonoBehaviour
 	private void OnCollisionEnter2D(Collision2D collision){
 		if(collision.transform.CompareTag("Player")){
 			player_health player_health = collision.transform.GetComponent<player_health>();
-			player_health.Take_Damage(10);
+			player_shield player_shield = collision.transform.GetComponent<player_shield>();
+
+			if(player_shield.current_Shield > 0){
+				player_shield.Take_Shield_Damage(10);
+			} else {
+				player_health.Take_Damage(10);
+			}
+
 		}
 	}
 
